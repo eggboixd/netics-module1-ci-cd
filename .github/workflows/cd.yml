@@ -16,7 +16,7 @@ jobs:
       run: sudo docker pull eggboixd/module1-cicd:latest
     - name: Delete old container
       run: docker rm -f module1-cicd || true
-    - name: Remove old Docker image
-      run: docker rmi eggboixd/module1-cicd:latest || true
+    # - name: Remove old Docker image
+    #   run: docker rmi eggboixd/module1-cicd:latest || true
     - name: Run Docker container
-      run: docker run -d --name module1-cicd -p 8080:8080 eggboixd/module1-cicd:latest
+      run: sudo docker run -d -p 8080:8080 --name module1-cicd eggboixd/module1-cicd
