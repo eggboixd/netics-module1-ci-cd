@@ -25,6 +25,19 @@ app.get('/health', (req, res) => {
     });
 });
 
+app.get('/check', (req, res) => {
+    const currentTime = Date.now(); 
+    const uptime = process.uptime(); 
+  
+    res.status(200).send({
+        "nama": "Wildan",
+        "nrp": "5025231002",
+        "status": "UP",
+        "timestamp": currentTime,
+        "uptime": uptime
+    });
+});
+
 app.post('/health/:id', (req, res) => {
     const id = req.params.id; 
     const { message } = req.body; 
